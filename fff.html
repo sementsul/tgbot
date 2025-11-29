@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOS NUMBERS - Магазин номеров</title>
+    <style>
+        /* Общие стили MS-DOS */
+        body {
+            background-color: #000000; /* Черный фон */
+            color: #00FF00;           /* Зеленый текст */
+            font-family: 'Courier New', Courier, monospace; /* Пиксельный шрифт */
+            margin: 20px;
+            line-height: 1.5;
+        }
+
+        h1, h2, h3 {
+            color: #FFFF00; /* Желтый заголовок */
+            text-shadow: 2px 2px #000000;
+        }
+
+        a {
+            color: #00FFFF; /* Голубой текст для ссылок */
+            text-decoration: none; /* Убираем подчеркивание */
+            border-bottom: 1px dashed #00FFFF; /* Пунктирная линия под ссылками */
+        }
+
+        a:hover {
+            color: #FFFFFF; /* Белый при наведении */
+            border-bottom: 1px solid #FFFFFF;
+        }
+
+        /* Имитация кнопок */
+        .button {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 5px 0;
+            border: 1px solid #00FF00;
+            background-color: rgba(0, 255, 0, 0.1); /* Полупрозрачный зеленый */
+            cursor: pointer;
+            transition: all 0.1s ease-in-out;
+        }
+
+        .button:hover {
+            background-color: #00FF00;
+            color: #000000;
+            border-color: #FFFFFF;
+        }
+
+        /* Контейнер для контента */
+        .content-section {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px dashed #00FF00; /* Граница в стиле DOS */
+        }
+
+        /* Стили для списка классификаций */
+        .classification-list li {
+            margin-bottom: 8px;
+        }
+
+        /* Стили для подкатегорий номеров */
+        .number-category {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px dashed #00FFFF;
+        }
+
+        .number-category h3 {
+            color: #00FFFF;
+        }
+
+        .number-item {
+            margin-bottom: 10px;
+            display: inline-block; /* Чтобы номера выстраивались в строку */
+            margin-right: 15px;
+            padding: 5px 10px;
+            border: 1px dotted #00FF00;
+            background-color: rgba(0, 255, 0, 0.05);
+        }
+
+        /* Скрываем блоки номеров по умолчанию */
+        .number-category {
+            display: none;
+        }
+
+        /* Активируем блок при нажатии */
+        .number-category.active {
+            display: block;
+        }
+
+        /* Инструкции для работы с сайтом */
+        .instructions {
+            font-style: italic;
+            color: #AAAAAA;
+            margin-bottom: 20px;
+        }
+
+        /* Минималистичный футер */
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #555555;
+        }
+
+        /* Имитация кнопки "Назад" */
+        .back-button {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="content-section">
+        <h1><span style="color: #FFFF00;">DOS</span> <span style="color: #00FFFF;">NUMBERS</span></h1>
+        <p>Добро пожаловать в <strong>DOS NUMBERS</strong> – ваш персональный портал в мир ностальгии по легендарной операционной системе MS-DOS! Мы знаем, что для вас эти времена – не просто история, а часть души. Поэтому мы собрали эксклюзивную коллекцию <strong>красивых телефонных номеров</strong>, украшенных <strong>сакральными датами и числами</strong>, которые пробудят в вас те самые, неповторимые ощущения.</p>
+        <p>Здесь вы найдете номера, которые не просто соединят вас с миром, но и станут личным артефактом, символом вашей страсти к золотому веку компьютерных технологий.</p>
+        <p class="instructions">Используйте меню ниже, чтобы выбрать интересующую вас классификацию номеров. Нажмите на название классификации, чтобы увидеть примеры.</p>
+
+        <div class="classification-list">
+            <h2>Категории номеров:</h2>
+            <ul>
+                <li><a href="#classic-dos" onclick="showCategory('classic-dos'); return false;">1. Классика MS-DOS (версии, команды)</a></li>
+                <li><a href="#early-pc" onclick="showCategory('early-pc'); return false;">2. Ранние ПК и железо</a></li>
+                <li><a href="#retro-games" onclick="showCategory('retro-games'); return false;">3. Иконы ретро-игр</a></li>
+                <li><a href="#programming-languages" onclick="showCategory('programming-languages'); return false;">4. Языки программирования DOS</a></li>
+                <li><a href="#software-icons" onclick="showCategory('software-icons'); return false;">5. Легенды ПО</a></li>
+                <li><a href="#dates-80s" onclick="showCategory('dates-80s'); return false;">6. Даты 80-х (запуск DOS)</a></li>
+                <li><a href="#dates-90s" onclick="showCategory('dates-90s'); return false;">7. Даты 90-х (пик DOS)</a></li>
+                <li><a href="#tech-anniversaries" onclick="showCategory('tech-anniversaries'); return false;">8. Технологические годовщины</a></li>
+                <li><a href="#geometric-patterns" onclick="showCategory('geometric-patterns'); return false;">9. Геометрические узоры</a></li>
+                <li><a href="#prime-numbers" onclick="showCategory('prime-numbers'); return false;">10. Простые числа</a></li>
+                <li><a href="#perfect-squares" onclick="showCategory('perfect-squares'); return false;">11. Идеальные квадраты</a></li>
+                <li><a href="#fibonacci-sequence" onclick="showCategory('fibonacci-sequence'); return false;">12. Последовательность Фибоначчи</a></li>
+                <li><a href="#lucky-numbers" onclick="showCategory('lucky-numbers'); return false;">13. Счастливые числа</a></li>
+                <li><a href="#magic-numbers" onclick="showCategory('magic-numbers'); return false;">14. Магические комбинации</a></li>
+                <li><a href="#birthdays-legends" onclick="showCategory('birthdays-legends'); return false;">15. Дни рождения легенд</a></li>
+                <li><a href="#iconic-codes" onclick="showCategory('iconic-codes'); return false;">16. Знаковые коды</a></li>
+                <li><a href="#startup-sounds" onclick="showCategory('startup-sounds'); return false;">17. Звуки старта</a></li>
+                <li><a href="#command-shortcuts" onclick="showCategory('command-shortcuts'); return false;">18. Командные сокращения</a></li>
+                <li><a href="#memory-addresses" onclick="showCategory('memory-addresses'); return false;">19. Адреса памяти</a></li>
+                <li><a href="#bit-patterns" onclick="showCategory('bit-patterns'); return false;">20. Битовые паттерны</a></li>
+            </ul>
+        </div>
+
+        <div class="button">
+            <a href="#main-section" onclick="scrollToTop();">На главную</a>
+        </div>
+    </div>
+
+    <!-- Блоки с категориями номеров -->
+    <div id="classic-dos" class="number-category">
+        <h3>1. Классика MS-DOS (версии, команды)</h3>
+        <p>Номера, отсылающие к ключевым версиям и командам MS-DOS.</p>
+        <div class="number-item">3.30.XXXX</div>
+        <div class="number-item">5.00.XXXX</div>
+        <div class="number-item">6.22.XXXX</div>
+        <div class="number-item">DIR.XXXXXX</div>
+        <div class="number-item">CD.XXXXXX</div>
+        <div class="number-item">MEM.XXXXXX</div>
+        <div class="number-item">FORMAT.XX</div>
+        <div class="number-item">DEBUG.XX</div>
+        <div class="number-item">SYS.XXXXXX</div>
+        <div class="number-item">EDIT.XXXXXX</div>
+    </div>
+
+    <div id="early-pc" class="number-category">
+        <h3>2. Ранние ПК и железо</h3>
+        <p>Числа, связанные с культовыми компьютерами и компонентами эпохи.</p>
+        <div class="number-item">8088.XXXX</div>
+        <div class="number-item">80286.XX</div>
+        <div class="number-item">XT.XXXXXX</div>
+        <div class="number-item">AT.XXXXXX</div>
+        <div class="number-item">VGA.XXXXXX</div>
+        <div class="number-item">CGA.XXXXXX</div>
+        <div class="number-item">80MB.XXXX</div>
+        <div class="number-item">640KB.XX</div>
+        <div class="number-item">IRQC.XX</div>
+        <div class="number-item">DMA.XXXXXX</div>
+    </div>
+
+    <div id="retro-games" class="number-category">
+        <h3>3. Иконы ретро-игр</h3>
+        <p>Номера, вдохновленные легендарными играми, в которые играли под DOS.</p>
+        <div class="number-item">DOOM.XXXX</div>
+        <div class="number-item">WOLF3D.XX</div>
+        <div class="number-item">PRINCE.XX</div>
+        <div class="number-item">SIMCITY.XX</div>
+        <div class="number-item">CIV.XXXXXX</div>
+        <div class="number-item">LEMMINGS.X</div>
+        <div class="number-item">DUNE.XXXX</div>
+        <div class="number-item">UT.XXXXXX</div>
+        <div class="number-item">QUEST.XX</div>
+        <div class="number-item">MONKEY.XX</div>
+    </div>
+
+    <div id="programming-languages" class="number-category">
+        <h3>4. Языки программирования DOS</h3>
+        <p>Номера, связанные с языками, на которых писали программы для DOS.</p>
+        <div class="number-item">QBASIC.XX</div>
+        <div class="number-item">PASCAL.XX</div>
+        <div class="number-item">C.XXXXXX</div>
+        <div class="number-item">ASM.XXXXXX</div>
+        <div class="number-item">FORTRAN.X</div>
+        <div class="number-item">BASIC.XXX</div>
+        <div class="number-item">COBOL.XX</div>
+        <div class="number-item">MODULA2.X</div>
+        <div class="number-item">LISP.XXXX</div>
+        <div class="number-item">LOGO.XXXX</div>
+    </div>
+
+    <div id="software-icons" class="number-category">
+        <h3>5. Легенды ПО</h3>
+        <p>Номера, посвященные культовым программам и утилитам.</p>
+        <div class="number-item">NORTON.XX</div>
+        <div class="number-item">PKZIP.XXX</div>
+        <div class="number-item">ARJ.XXXXX</div>
+        <div class="number-item">LHA.XXXXX</div>
+        <div class="number-item">GHOST.XXX</div>
+        <div class="number-item">PM.XXXXXX</div>
+        <div class="number-item">DESQVIEW.X</div>
+        <div class="number-item">WORDPERF.X</div>
+        <div class="number-item">LOTUS123.X</div>
+        <div class="number-item">FOXPRO.XX</div>
+    </div>
+
+    <div id="dates-80s" class="number-category">
+        <h3>6. Даты 80-х (запуск DOS)</h3>
+        <p>Номера, включающие годы и важные даты из 80-х.</p>
+        <div class="number-item">1981.XXXX</div>
+        <div class="number-item">1982.XXXX</div>
+        <div class="number-item">1983.XXXX</div>
+        <div class="number-item">1984.XXXX</div>
+        <div class="number-item">1985.XXXX</div>
+        <div class="number-item">1986.XXXX</div>
+        <div class="number-item">1987.XXXX</div>
+        <div class="number-item">1988.XXXX</div>
+        <div class="number-item">1989.XXXX</div>
+        <div class="number-item">23.07.85</div> <!-- Пример даты -->
+    </div>
+
+    <div id="dates-90s" class="number-category">
+        <h3>7. Даты 90-х (пик DOS)</h3>
+        <p>Номера с годами и датами из 90-х, когда DOS был на пике популярности.</p>
+        <div class="number-item">1990.XXXX</div>
+        <div class="number-item">1991.XXXX</div>
+        <div class="number-item">1992.XXXX</div>
+        <div class="number-item">1993.XXXX</div>
+        <div class="number-item">1994.XXXX</div>
+        <div class="number-item">1995.XXXX</div>
+        <div class="number-item">1996.XXXX</div>
+        <div class="number-item">1997.XXXX</div>
+        <div class="number-item">1998.XXXX</div>
+        <div class="number-item">1999.XXXX</div>
+    </div>
+
+    <div id="tech-anniversaries" class="number-category">
+        <h3>8. Технологические годовщины</h3>
+        <p>Номера, приуроченные к важным событиям в истории технологий.</p>
+        <div class="number-item">1977.XXXX</div> <!-- Apple II -->
+        <div class="number-item">1981.XXXX</div> <!-- IBM PC -->
+        <div class="number-item">1983.XXXX</div> <!-- Apple Lisa -->
+        <div class="number-item">1984.XXXX</div> <!-- Macintosh -->
+        <div class="number-item">1990.XXXX</div> <!-- WWW -->
+        <div class="number-item">1993.XXXX</div> <!-- Mosaic -->
+        <div class="number-item">1975.XXXX</div> <!-- Altair 8800 -->
+        <div class="number-item">1971.XXXX</div> <!-- Intel 4004 -->
+        <div class="number-item">1973.XXXX</div> <!-- Xerox Alto -->
+        <div class="number-item">1976.XXXX</div> <!-- Apple I -->
+    </div>
+
+    <div id="geometric-patterns" class="number-category">
+        <h3>9. Геометрические узоры</h3>
+        <p>Номера с повторяющимися или симметричными последовательностями.</p>
+        <div class="number-item">121212XX</div>
+        <div class="number-item">343434XX</div>
+        <div class="number-item">787878XX</div>
+        <div class="number-item">112233XX</div>
+        <div class="number-item">445566XX</div>
+        <div class="number-item">778899XX</div>
+        <div class="number-item">123321XX</div>
+        <div class="number-item">456654XX</div>
+        <div class="number-item">789987XX</div>
+        <div class="number-item">101010XX</div>
+    </div>
+
+    <div id="prime-numbers" class="number-category">
+        <h3>10. Простые числа</h3>
+        <p>Номера, состоящие из простых чисел или представляющие их.</p>
+        <div class="number-item">2357XXXX</div>
+        <div class="number-item">111317XX</div>
+        <div class="number-item">192329XX</div>
+        <div class="number-item">313741XX</div>
+        <div class="number-item">434753XX</div>
+        <div class="number-item">596167XX</div>
+        <div class="number-item">717379XX</div>
+        <div class="number-item">838997XX</div>
+        <div class="number-item">101103XX</div>
+        <div class="number-item">107109XX</div>
+    </div>
+
+    <div id="perfect-squares" class="number-category"> <h3>11. Идеальные квадраты</h3>
+        <p>Номера, включающие числа, являющиеся полными квадратами.</p>
+        <div class="number-item">4.XXXXXX</div> <!-- 2^2 -->
+        <div class="number-item">9.XXXXXX</div> <!-- 3^2 -->
+        <div class="number-item">16.XXXXX</div> <!-- 4^2 -->
+        <div class="number-item">25.XXXXX</div> <!-- 5^2 -->
+        <div class="number-item">36.XXXXX</div> <!-- 6^2 -->
+        <div class="number-item">49.XXXXX</div> <!-- 7^2 -->
+        <div class="number-item">64.XXXXX</div> <!-- 8^2 -->
+        <div class="number-item">81.XXXXX</div> <!-- 9^2 -->
+        <div class="number-item">100.XXX</div> <!-- 10^2 -->
+        <div class="number-item">121.XXX</div> <!-- 11^2 -->
+    </div>
+
+    <div id="fibonacci-sequence" class="number-category">
+        <h3>12. Последовательность Фибоначчи</h3>
+        <p>Номера, основанные на числах Фибоначчи (0, 1, 1, 2, 3, 5, 8...)</p>
+        <div class="number-item">1123XXXX</div>
+        <div class="number-item">1235XXXX</div>
+        <div class="number-item">2358XXXX</div>
+        <div class="number-item">35813XX</div>
+        <div class="number-item">581321X</div>
+        <div class="number-item">8132134</div>
+        <div class="number-item">1321345</div>
+        <div class="number-item">2134558</div>
+        <div class="number-item">3455890</div>
+        <div class="number-item">5589014</div>
+    </div>
+
+    <div id="lucky-numbers" class="number-category">
+        <h3>13. Счастливые числа</h3>
+        <p>Номера с "счастливыми" числами (например, 7, 13, 777).</p>
+        <div class="number-item">777.XXXX</div>
+        <div class="number-item">7.XXXXXX</div>
+        <div class="number-item">13.XXXXX</div>
+        <div class="number-item">77.XXXXX</div>
+        <div class="number-item">707.XXXX</div>
+        <div class="number-item">1313XX</div>
+        <div class="number-item">7777.XX</div>
+        <div class="number-item">23.XXXXX</div> <!-- Часто считается счастливым -->
+        <div class="number-item">8.XXXXXX</div> <!-- Китайское "счастливое" -->
+        <div class="number-item">168.XXXX</div> <!-- Китайское "приносящее богатство" -->
+    </div>
+
+    <div id="magic-numbers" class="number-category">
+        <h3>14. Магические комбинации</h3>
+        <p>Номера с повторяющимися или "заговоренными" последовательностями.</p>
+        <div class="number-item">111111XX</div>
+        <div class="number-item">222222XX</div>
+        <div class="number-item">333333XX</div>
+        <div class="number-item">444444XX</div>
+        <div class="number-item">555555XX</div>
+        <div class="number-item">666666XX</div>
+        <div class="number-item">777777XX</div>
+        <div class="number-item">888888XX</div>
+        <div class="number-item">999999XX</div>
+        <div class="number-item">000000XX</div>
+    </div>
+
+    <div id="birthdays-legends" class="number-category">
+        <h3>15. Дни рождения легенд</h3>
+        <p>Номера, включающие дни рождения известных личностей из мира IT и DOS.</p>
+        <div class="number-item">1965.XX</div> <!-- Билл Гейтс (1955) -->
+        <div class="number-item">1955.XX</div> <!-- Билл Гейтс -->
+        <div class="number-item">1946.XX</div> <!-- Билл Роудс (MS-DOS) -->
+        <div class="number-item">1947.XX</div> <!-- Стив Джобс -->
+        <div class="number-item">1956.XX</div> <!-- Стив Возняк -->
+        <div class="number-item">1969.XX</div> <!-- Стив Балмер -->
+        <div class="number-item">1973.XX</div> <!-- Linus Torvalds -->
+        <div class="number-item">1974.XX</div> <!-- Mark Zuckerberg -->
+        <div class="number-item">1971.XX</div> <!-- Jimmy Wales (Wikipedia) -->
+        <div class="number-item">1964.XX</div> <!-- Jeff Bezos -->
+    </div>
+
+    <div id="iconic-codes" class="number-category">
+        <h3>16. Знаковые коды</h3>
+        <p>Номера, вдохновленные кодами, секретами и отсылками.</p>
+        <div class="number-item">42.XXXXX</div> <!-- Ответ на всё -->
+        <div class="number-item">1024.XXX</div> <!-- KB -->
+        <div class="number-item">4096.XXX</div> <!-- KB -->
+        <div class="number-item">8.XXXXXX</div> <!-- Бит -->
+        <div class="number-item">16.XXXXX</div> <!-- Бит -->
+        <div class="number-item">32.XXXXX</div> <!-- Бит -->
+        <div class="number-item">64.XXXXX</div> <!-- Бит -->
+        <div class="number-item">256.XXX</div> <!-- Бит -->
+        <div class="number-item">65536.X</div> <!-- Память -->
+        <div class="number-item">131072.X</div> <!-- Память -->
+    </div>
+
+    <div id="startup-sounds" class="number-category">
+        <h3>17. Звуки старта</h3>
+        <p>Номера, напоминающие о звуках, которые сопровождали запуск DOS.</p>
+        <div class="number-item">BEEP.XXXX</div>
+        <div class="number-item">CHIME.XXX</div>
+        <div class="number-item">DING.XXXX</div>
+        <div class="number-item">BUZZ.XXXX</div>
+        <div class="number-item">CLICK.XXX</div>
+        <div class="number-item">WHIRR.XXX</div>
+        <div class="number-item">THUMP.XXX</div>
+        <div class="number-item">TONE.XXXX</div>
+        <div class="number-item">AUDIO.XXX</div>
+        <div class="number-item">SOUND.XXX</div>
+    </div>
+
+    <div id="command-shortcuts" class="number-category">
+        <h3>18. Командные сокращения</h3>
+        <p>Номера, имитирующие короткие команды или их комбинации.</p>
+        <div class="number-item">RUN.XXXXX</div>
+        <div class="number-item">GO.XXXXXX</div>
+        <div class="number-item">START.XXX</div>
+        <div class="number-item">LOAD.XXX</div>
+        <div class="number-item">SAVE.XXX</div>
+        <div class="number-item">QUIT.XXX</div>
+        <div class="number-item">EXIT.XXX</div>
+        <div class="number-item">OPEN.XXX</div>
+        <div class="number-item">CLOSE.XXX</div>
+        <div class="number-item">VIEW.XXX</div>
+    </div>
+
+    <div id="memory-addresses" class="number-category">
+        <h3>19. Адреса памяти</h3>
+        <p>Номера, стилизованные под адреса памяти (шестнадцатеричные).</p>
+        <div class="number-item">0X0000.X</div>
+        <div class="number-item">0XFFFF.X</div>
+        <div class="number-item">0xA000.X</div>
+        <div class="number-item">0xB000.X</div>
+        <div class="number-item">0xC000.X</div>
+        <div class="number-item">0xD000.X</div>
+        <div class="number-item">0xE000.X</div>
+        <div class="number-item">0xF000.X</div>
+        <div class="number-item">0x1000.X</div>
+        <div class="number-item">0x8000.X</div>
+    </div>
+
+    <div id="bit-patterns" class="number-category">
+        <h3>20. Битовые паттерны</h3>
+        <p>Номера, имитирующие простые битовые последовательности.</p>
+        <div class="number-item">101010XX</div>
+        <div class="number-item">010101XX</div>
+        <div class="number-item">111100XX</div>
+        <div class="number-item">000011XX</div>
+        <div class="number-item">100001XX</div>
+        <div class="number-item">011110XX</div>
+        <div class="number-item">101001XX</div>
+        <div class="number-item">010110XX</div>
+        <div class="number-item">110011XX</div>
+        <div class="number-item">001100XX</div>
+    </div>
+
+    <div class="content-section" id="main-section">
+        <h2>Как это работает?</h2>
+        <p>Мы предлагаем вам выбрать телефонный номер, который будет не просто средством связи, но и вашим личным символом, напоминанием о славной эпохе MS-DOS.</p>
+        <p><strong>Выберите категорию из меню выше</strong>, и вы увидите примеры номеров, которые мы можем предложить. Если какой-то номер понравился, вы можете <a href="#contact">связаться с нами</a> для уточнения наличия и стоимости.</p>
+        <div class="button">
+            <a href="#contact">Связаться с нами</a>
+        </div>
+    </div>
+
+    <div class="content-section" id="contact">
+        <h2>Связь с нами</h2>
+        <p>По вопросам приобретения, наличия и стоимости номеров, а также по любым другим вопросам, пожалуйста, свяжитесь с нами:</p>
+        <p><strong>E-mail:</strong> <a href="mailto:dosnumbers@example.com">dosnumbers@example.com</a></p>
+        <p><strong>Телефон:</strong> <a href="tel:+70001234567">+7 (000) 123-45-67</a> (предполагаемый номер, для имитации)</p>
+        <p>Мы ответим вам в ближайшее время, как только накопится достаточно писем на дискете...</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 DOS NUMBERS. Все права на ностальгию защищены.</p>
+        <p>Сделано с любовью к DOS.</p>
+    </footer>
+
+    <script>
+        // Функция для отображения нужной категории номеров
+        function showCategory(categoryId) {
+            // Скрываем все блоки категорий
+            const categories = document.querySelectorAll('.number-category');
+            categories.forEach(cat => cat.classList.remove('active'));
+
+            // Отображаем выбранный блок
+            const selectedCategory = document.getElementById(categoryId);
+            if (selectedCategory) {
+                selectedCategory.classList.add('active');
+            }
+        }
+
+        // Функция для прокрутки вверх
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // При загрузке страницы показываем главную секцию и скрываем все категории
+        document.addEventListener('DOMContentLoaded', () => {
+            const categories = document.querySelectorAll('.number-category');
+            categories.forEach(cat => cat.classList.remove('active'));
+            // По умолчанию можно показать главную страницу, если нужно
+            // scrollToTop(); // Прокрутка наверх при загрузке
+        });
+    </script>
+
+</body>
+</html>
