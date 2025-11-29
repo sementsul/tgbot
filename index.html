@@ -3,134 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOS-NUMBERS</title>
+    <title>MS-DOS Iconic Numbers - Сакральные номера для вас</title>
     <style>
         body {
-            background-color: #0000AA; /* Синий фон, как в MS-DOS */
-            color: #00AA00; /* Зеленый текст */
-            font-family: "Courier New", Courier, monospace; /* Моноширинный шрифт */
-            margin: 20px;
-            line-height: 1.6;
-        }
-        h1, h2, h3 {
-            color: #AAAA00; /* Желтый заголовок */
-            text-transform: uppercase;
-        }
-        h1 {
-            text-align: center;
-            text-shadow: 2px 2px #000000;
-            margin-bottom: 30px;
+            font-family: "Courier New", Courier, monospace;
+            background-color: #000080; /* Темно-синий фон MS-DOS */
+            color: #00FF00; /* Ярко-зеленый текст MS-DOS */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
         }
         .container {
-            max-width: 800px;
-            margin: 0 auto;
-            border: 1px dashed #AAAA00; /* Пунктирная рамка */
-            padding: 20px;
-            background-color: #000055; /* Более темный синий для контейнера */
+            width: 90%;
+            max-width: 960px;
+            background-color: rgba(0, 0, 128, 0.8); /* Чуть светлее синий с прозрачностью */
+            border: 2px solid #00FFFF; /* Бирюзовая рамка */
+            padding: 30px;
+            box-shadow: 0 0 15px #00FFFF; /* Свечение рамки */
+            text-align: center;
         }
-        a {
-            color: #00FFFF; /* Голубой текст ссылок */
-            text-decoration: none;
-            border-bottom: 1px dotted #00FFFF;
+        h1 {
+            color: #FFFF00; /* Желтый заголовок */
+            margin-bottom: 30px;
+            text-shadow: 2px 2px #FF00FF; /* Фиолетовая тень */
         }
-        a:hover {
-            color: #FFFFFF; /* Белый при наведении */
-            border-bottom: 1px solid #FFFFFF;
+        h2 {
+            color: #00FFFF; /* Бирюзовые подзаголовки */
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-bottom: 2px dashed #00FFFF;
+            padding-bottom: 10px;
         }
-        .button {
-            display: inline-block;
-            background-color: #AAAAAA; /* Серый фон кнопки */
-            color: #000000; /* Черный текст кнопки */
-            padding: 10px 15px;
-            margin-top: 15px;
-            border: 1px solid #FFFFFF; /* Белая обводка */
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+            justify-items: center;
+        }
+        .category-button {
+            background-color: #008080; /* Темно-бирюзовый фон кнопки */
+            color: #FFFFFF; /* Белый текст кнопки */
+            border: 2px solid #00FFFF; /* Бирюзовая рамка кнопки */
+            padding: 15px 25px;
+            font-size: 1.1em;
             cursor: pointer;
+            text-decoration: none;
             text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-shadow: 3px 3px 0 #FF00FF; /* Фиолетовая тень кнопки */
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
         }
-        .button:hover {
-            background-color: #FFFFFF; /* Белый фон при наведении */
-            color: #AA0000; /* Красный текст при наведении */
+        .category-button:hover {
+            background-color: #00FFFF; /* Бирюзовый фон при наведении */
+            color: #000000; /* Черный текст при наведении */
+            border-color: #FFFF00; /* Желтая рамка при наведении */
+            box-shadow: 3px 3px 0 #FFFF00; /* Желтая тень при наведении */
         }
-        .features li, .requirements li {
-            margin-bottom: 10px;
-        }
-        .features h3, .requirements h3 {
-            margin-bottom: 15px;
+        .category-button:active {
+            box-shadow: none; /* Убираем тень при нажатии */
+            transform: translate(3px, 3px);
         }
         .footer {
-            text-align: center;
-            margin-top: 30px;
+            margin-top: 50px;
             font-size: 0.9em;
-            color: #AAAAAA; /* Серый для футера */
+            color: #808080; /* Серый текст футера */
+            text-align: center;
         }
+        .prompt {
+            font-size: 1.2em;
+            margin-top: 20px;
+            color: #FFFF00; /* Желтый цвет для приглашения */
+            animation: blink 1s infinite; /* Мигание как в DOS */
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Стиль для кнопки "На главную" */
+        .home-button {
+            background-color: #FF00FF; /* Фиолетовый */
+            color: #FFFFFF;
+            border: 2px solid #FFFF00; /* Желтая */
+            padding: 12px 25px;
+            font-size: 1em;
+            cursor: pointer;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            margin-top: 30px;
+            box-shadow: 3px 3px 0 #00FFFF; /* Бирюзовая тень */
+        }
+        .home-button:hover {
+            background-color: #FFFF00; /* Желтый */
+            color: #000000;
+            border-color: #FF00FF; /* Фиолетовая */
+
+       box-shadow: 3px 3px 0 #FF00FF;
+        }
+         .home-button:active {
+            box-shadow: none;
+            transform: translate(3px, 3px);
+        }
+
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>DOS-NUMBERS</h1>
-        <p><i>Коллекция эксклюзивных телефонных номеров для ценителей MS-DOS. Откройте для себя красивые номера с памятными комбинациями чисел и дат, идеально подходящие для тех, кто любит и помнит легендарную операционную систему MS-DOS. Станьте владельцем номера, который отражает вашу страсть к ретро-компьютерам.</i></p>
-        
-        <!-- Добавьте этот блок для скриншота -->
-    <div style="text-align: center; margin: 20px 0;">
-        <img src="photo-output.jpeg" alt="Скриншот программы MS-DOS BOOT FROM USB" style="max-width: 100%; height: auto; border: 2px dashed #AAAA00;">
+        <h1>MS-DOS Iconic Numbers</h1>
+        <p>Добро пожаловать в мир уникальных телефонных номеров, наполненных духом классической эры операционных систем!</p>
+        <p>Мы собрали коллекции номеров, которые отсылают к легендарным датам, командам и символам MS-DOS.</p>
+
+        <h2>Классификации номеров</h2>
+        <div class="categories">
+            <a href="#choose-page" class="category-button">Команды DOS</a>
+            <a href="#choose-page" class="category-button">Версии DOS</a>
+            <a href="#choose-page" class="category-button">Знаменитые игры DOS</a>
+            <a href="#choose-page" class="category-button">Дни рождения легенд</a>
+            <a href="#choose-page" class="category-button">Годы релизов</a>
+            <a href="#choose-page" class="category-button">Коды ошибок</a>
+            <a href="#choose-page" class="category-button">Расширения файлов</a>
+            <a href="#choose-page" class="category-button">Аппаратные коды</a>
+            <a href="#choose-page" class="category-button">Символы DOS</a>
+            <a href="#choose-page" class="category-button">Цветовые схемы</a>
+            <a href="#choose-page" class="category-button">Архитектура</a>
+            <a href="#choose-page" class="category-button">Ключевые даты</a>
+            <a href="#choose-page" class="category-button">Файловые системы</a>
+            <a href="#choose-page" class="category-button">Память (RAM)</a>
+            <a href="#choose-page" class="category-button">Графика</a>
+            <a href="#choose-page" class="category-button">Звуки DOS</a>
+            <a href="#choose-page" class="category-button">Сетевые протоколы</a>
+            <a href="#choose-page" class="category-button">Скрытые функции</a>
+            <a href="#choose-page" class="category-button">Классические шрифты</a>
+            <a href="#choose-page" class="category-button">Файловые атрибуты</a>
+        </div>
+
+        <div class="prompt">
+            _
+        </div>
+
+        <p>
+            <a href="#choose-page" class="home-button">Перейти к подбору номеров</a>
+        </p>
     </div>
-    <!-- Конец блока со скриншота -->
 
-        <h2>Ключевые даты</h2>
-        
-        <ul class="features" style="max-width: 100%; height: auto; border: 2px dashed #AAAA00;">
-            <li>1981 года — дата выпуска MS-DOS компанией Microsoft, которая стала массово устанавливаться на IBM-совместимые ПК, в том числе на IBM PC 5150</li>
-            <div style="text-align: center;">
-            <a href="#" class="button">Купить сейчас</a>
-        </div>
-        </ul>
-
-
-            
-        <h2>Требования</h2>
-        <ul class="requirements">
-            <li>USB-флешка объемом <span style="color: #FFFF00;">не более 4GB</span>.</li>
-            <li>Компьютер с поддержкой загрузки с USB через <span style="color: #FFFF00;">BIOS</span> (UEFI не поддерживается).</li>
-            <li>Операционная система Windows для запуска программы создания.</li>
-        </ul>
-
-        <h2>Как это работает?</h2>
-        <p>
-            Просто запустите программу <strong>MS-DOS BOOT FROM USB</strong> на вашем компьютере с Windows,
-            выберите желаемую версию  MS-DOS, укажите вашу USB-флешку, и программа
-            сделает все остальное. Через несколько минут ваша флешка будет готова
-            к использованию!
-        </p>
-
-        <h2>Пример использования</h2>
-        <p>
-            * Старт компьютера с флешки.
-            <br>
-            * Доступ к командной строке MS-DOS.
-            <br>
-            * Запуск старых DOS-игр.
-            <br>
-            * Диагностика оборудования.
-            <br>
-            * Работа с устаревшим ПО.
-        </p>
-
-        <h2>Цена</h2>
-        <p>
-            <strong>MS-DOS BOOT FROM USB</strong> доступна по цене <span style="color: #FFFF00;">$9.99</span> (или эквивалент).
-            <br>
-            Оплатите и получите ссылку для скачивания сразу же!
-        </p>
-
-        <div style="text-align: center;">
-            <a href="#" class="button">Купить сейчас</a>
-        </div>
-
-        <div class="footer">
-            &copy; 2023 MS-DOS BOOT FROM USB. Все права защищены.
-            <br>
-            <a href="#">Связаться с нами</a> | <a href="#">Частые вопросы</a>
-        </div>
+    <div class="footer">
+        &copy; 2023 MS-DOS Iconic Numbers. Все права защищены. | Дизайн вдохновлен эпохой MS-DOS.
     </div>
+
+    <!-- Предполагаемая страница подбора (можно заменить на реальную ссылку) -->
+    <div id="choose-page" style="display: none; margin-top: 50px; text-align: center;">
+        <h2 style="color: #FFFF00;">Страница подбора номеров</h2>
+        <p style="font-size: 1.1em;">Здесь вы сможете выбрать номер, соответствующий вашей категории.</p>
+        <p style="color: #808080;">(Эта секция имитирует переход на новую страницу. В реальном проекте здесь будет другой HTML-файл или динамическое содержимое.)</p>
+        <a href="#" onclick="window.history.back(); return false;" class="home-button">Вернуться на главную</a>
+    </div>
+
 </body>
 </html>
